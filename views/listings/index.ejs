@@ -1,0 +1,187 @@
+
+<% layout("/layouts/bolierplate") %>
+
+  
+
+
+  <div id="filters">
+
+
+    <a href="/listing?category=Trending">
+   <div class="filter">
+   <div> <i class="fa-solid fa-fire"></i></div>
+   <p>Trending</p>
+   
+   </div>
+    </a>
+
+
+
+
+
+
+
+
+
+
+<a href="/listing?category=Mountains">
+   <div class="filter">
+   <div><i class="fa-solid fa-mountain"></i></div>
+  <p>Mountains</p> 
+  </div>
+
+</a>
+
+
+
+  
+
+
+
+
+   <a href="/listing?category=Water Sports">
+   <div class="filter">
+   <div><i class="fa-solid fa-person-swimming"></i></div>
+  <p>Water Sports</p> 
+  </div>
+</a>
+
+
+
+
+
+  
+<a href="/listing?category=Camping">
+   <div class="filter">
+   <div><i class="fa-solid fa-campground"></i></div>
+   <p>Campaign</p>
+   
+
+   </div>
+
+  </a>
+
+
+
+
+<a href="/listing?category=Farm">
+   <div class="filter">
+   <div><i class="fa-solid fa-cow"></i></div>
+  <p>Farms</p> 
+  </div>
+</a>
+
+
+
+<a href="/listing?category=Arts">
+   <div class="filter">
+   <div><i class="fa-regular fa-snowflake"></i></div>
+  <p>Arts</p> 
+  </div>
+</a>
+
+
+
+  
+
+<a href="/listing?category=Wildlife">
+   <div class="filter">
+   <div><i class="fa-solid fa-hippo"></i></div>
+  <p>WildLife experiences</p> 
+  </div>
+</a>
+
+
+  
+
+
+
+
+  <a href="/listing?category=Adventure">
+   <div class="filter">
+   <div><i class="fa-solid fa-bicycle"></i></div>
+  <p>Adventure</p> 
+  </div>
+
+  </a>
+
+
+
+ <div class="tax-toggle">
+<div class="form-check-reverse form-switch">
+  <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+  <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+</div>
+ </div>
+
+
+</div>
+
+
+
+  <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1 mt-3">
+
+    
+<% for(let listing of listings) {%>
+
+<a href="/listing/<%=listing.id %>"class="listing-link">
+
+
+  <div class=" card col listing-card">
+    
+  <img 
+  src="<%=listing.image.url%>"
+   class="card-img-top" 
+   alt="listing_img"
+     style="height: 20rem" >
+
+      <div class="card-img-overlay"></div>
+  <div class="card-body">
+    <p class="card-text"><b><%=listing.title%></b>
+    </p>
+    &#8377;<%=listing.price.toLocaleString("en-IN")%>
+    <i class="tax-info">&nbsp;  &nbsp;+18%GST</i>
+
+    
+
+  </div>
+
+    
+
+
+</div>
+
+</a>
+
+  <% } %>  
+  </div>
+
+
+
+
+<script>
+  let taxSwitch= document.getElementById("switchCheckDefault");
+  taxSwitch.addEventListener("click",()=>{
+  // console.log("clicked");
+
+let taxInfo= document.getElementsByClassName("tax-info");
+// console.log(taxInfo);
+for(tax of taxInfo){
+
+
+  if(tax.style.display !="inline"){
+tax.style.display="inline";
+  }else{
+tax.style.display="none";
+  }
+  
+  
+}
+
+  });
+ 
+  </script>
+
+
+
+
