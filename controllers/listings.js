@@ -107,6 +107,8 @@ module.exports.newListing= async(req,res,next)=>{
 
 // newListing.category= categoryMap[newListing.title];
 
+
+
   let savedListing= await newListing .save();
   console.log(savedListing);
 
