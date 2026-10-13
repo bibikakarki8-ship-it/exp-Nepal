@@ -31,7 +31,7 @@
 </div>
 
 
-<!-- 
+
 
  <%if(currentUser && currentUser._id.equals(listing.owner._id)) { %>   
 <div class="btns">
@@ -51,7 +51,7 @@
 
 
 </div>
-   <%}%>    -->
+   <%}%>    
 
 
 
@@ -59,24 +59,6 @@
 
    
 
-
-<div class="btns">
- <form method="get" action="/listing/<%=listing.id%>/edit">
-      <button class="btn btn-dark">Edit</button>
-
-
-     </form>
-
-
-     
-     <form  method="POST" action="/listing/<%=listing.id%>?_method=DELETE">
-      <button class=" btn btn-danger">Delete</button>
-
-     </form>
-
-
-
-</div>
   
 
 
