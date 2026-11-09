@@ -52,7 +52,7 @@ const User= require("./models/user.js");
 
 
 
-// const dbUrl=process.env.ATLASDB_URL;
+const dbUrl=process.env.ATLASDB_URL;
 
 
 main()
@@ -66,8 +66,8 @@ main()
 
 async function main() {
     
-//    await mongoose.connect(dbUrl);
-      await mongoose.connect('mongodb://127.0.0.1:27017/nepal_anubhav');
+   await mongoose.connect(dbUrl);
+    //   await mongoose.connect('mongodb://127.0.0.1:27017/nepal_anubhav');
 
 }
 
@@ -79,19 +79,19 @@ async function main() {
 
 
 
-// const store= MongoStore.create({
-//      mongoUrl: dbUrl,
-//       crypto:{
-//         secret:process.env.SECRET,
+const store= MongoStore.create({
+     mongoUrl: dbUrl,
+      crypto:{
+        secret:process.env.SECRET,
 
-//       },
-//       touchAfter: 24*3600,
-// })
+      },
+      touchAfter: 24*3600,
+})
 
 
 
 const sessionOptions={
-    // store,
+    store,
     secret:process.env.SECRET,
     resave:false,
     saveUninitialized:true,
@@ -107,9 +107,9 @@ http:true,
 
 
 
-// store.on("error",()=>{
-//     console.log("ERROR IN THE MONGO SESSION STORE,",err);
-// });
+store.on("error",()=>{
+    console.log("ERROR IN THE MONGO SESSION STORE,",err);
+});
 
 
 
