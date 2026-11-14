@@ -52,7 +52,7 @@ const User= require("./models/user.js");
 
 
 
-const dbUrl=process.env.ATLASDB_URL;
+ const dbUrl=process.env.ATLASDB_URL;
 
 
 main()
